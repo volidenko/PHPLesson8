@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
+	<meta charset="utf-8">
 </head>
+
 <body>
-<?
+	<?
 //require_once 'connection.php';
 include_once("function.php");
 
 if(isset($_POST['title']) && isset($_POST['price']) && isset($_POST['manId'])){
 
-	// подключаемся к серверу
-	// $link = mysqli_connect($host, $user, $password, $database) 
-	// 	or die("Ошибка " . mysqli_error($link)); 
 	$link = connect();
 	// экранирования символов для mysql
 	$title = htmlentities(mysqli_real_escape_string($link, $_POST['title']));
 	$price = htmlentities(mysqli_real_escape_string($link, $_POST['price']));
 	$manId = htmlentities(mysqli_real_escape_string($link, $_POST['manId']));
 
-	
-	// создание строки запроса
-	//$query ="INSERT INTO tovars VALUES(NULL, '$name','$company')";
     $query = "INSERT INTO `goods`(`Id`, `Title`, `Price`, `ManufacturerId`) VALUES (DEFAULT, '".$title."', ".$price.", ".$manId.")";
 
 	// выполняем запрос
@@ -35,15 +31,19 @@ if(isset($_POST['title']) && isset($_POST['price']) && isset($_POST['manId'])){
 	mysqli_close($link);
 }
 ?>
-<h2>Добавить новый товар</h2>
-<form method="POST">
-<p>Название товара:<br> 
-<input type="text" name="title" /></p>
-<p>Цена товара:<br> 
-<input type="number" name="price" step="0.01"/></p>
-<p>Производитель: <br> 
-<input type="number" name="manId" /></p>
-<input type="submit" value="Добавить">
-</form>
+	<h2>Добавить новый товар</h2>
+	<form method="POST">
+		<p>Название товара:<br>
+			<input type="text" name="title" />
+		</p>
+		<p>Цена товара:<br>
+			<input type="number" name="price" step="0.01" />
+		</p>
+		<p>Производитель: <br>
+			<input type="number" name="manId" />
+		</p>
+		<input type="submit" value="Добавить">
+	</form>
 </body>
+
 </html>

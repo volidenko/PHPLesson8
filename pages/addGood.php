@@ -1,11 +1,11 @@
 <?
-include_once("function.php");
+include_once("pages/function.php");
 // $title = "iPhone X11";
 // $price = 25999.9;
 // $manuf =1;
 if(isset($_POST['title']) && isset($_POST['price']) && isset($_POST['manId'])){
     if (addGood($title, $price, $manuf)){
-        echo "Good added";
+        echo "<span style='color:blue;'>Товар добавлен</span>";
     }
     else echo "Error while good adding";
 }

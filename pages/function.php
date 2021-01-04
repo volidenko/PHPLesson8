@@ -9,13 +9,24 @@ function connect($host="localhost", $login="root", $pasw="root", $dbName="ShopDb
     return $link;
 }
 
-
 function addGood($title, $price, $manId){
     $link=  connect();
     $title = htmlentities(mysqli_real_escape_string($link, $_POST['title']));
 	$price = htmlentities(mysqli_real_escape_string($link, $_POST['price']));
 	$manId = htmlentities(mysqli_real_escape_string($link, $_POST['manId']));
     $query = "INSERT INTO `goods`(`Id`, `Title`, `Price`, `ManufacturerId`) VALUES (DEFAULT, '".$title."', ".$price.", ".$manId.")";
+    $q = mysqli_query($link, $query);
+    $err = mysqli_errno($link);
+    if($err)
+    return false;
+    else
+    return true;
+}
+
+function addManufacturer($name){
+    $link=  connect();
+    $name = htmlentities(mysqli_real_escape_string($link, $_POST['title']));
+    $query = "INSERT INTO `manufacturers`(`Id`, `Name`) VALUES (DEFAULT, '".$name."')";
     $q = mysqli_query($link, $query);
     $err = mysqli_errno($link);
     if($err)
