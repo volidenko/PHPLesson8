@@ -2,16 +2,27 @@
 include_once("function.php");
 $link=  connect();
 $db=mysqli_select_db($link, "ShopDb") or die("Данная БД отсуствует!");
-$q=mysqli_query($link, "SELECT Goods.Title,  Manufacturers.ManufactName, Goods.Price from Manufacturers JOIN Goods ON Manufacturers.Id=Goods.ManufacturerId");
-echo "<ul>";
-while($row=mysqli_fetch_array($q)){
-    echo "<li>".$row[0]." ".$row["ManufactName"].", Цена: ".$row["Price"]." грн.</li>";
+$query ="SELECT Goods.Title,  Manufacturers.ManufactName, Goods.Price from Manufacturers JOIN Goods ON Manufacturers.Id=Goods.ManufacturerId";
+$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
+
+if($result)
+{
+    $rows = mysqli_num_rows($result);
+echo "<table><tr><th>Модель</th><th>Производитель</th><th>Цена</th></tr>";
+    for ($i = 0 ; $i < $rows ; ++$i)
+    {
+        $row = mysqli_fetch_row($result);
+        echo "<tr>";
+            for ($j = 0 ; $j < 3 ; ++$j){
+                echo "<td>$row[$j]</td>";
+            }
+        echo "</tr>";
+    }
+    echo "</table>";
 }
-echo "</ul>";
+echo "</br>";
+echo "В таблице Товары содержиться ".$rows." товара<br/>";
+?>
 
-echo "В таблице Товары содержиться ".mysqli_num_rows($q)." товара<br/>";
-
-
-//echo '<script>window.location="index.php";</script>';
-
-//<td><input type='checkbox' name='cb".$row[0]."'></td>
+<!-- echo '<script>window.location="index.php";</script>';
+echo `<td><input type='checkbox' name='cb".$row[0]."'></td>`; -->

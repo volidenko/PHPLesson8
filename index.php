@@ -18,7 +18,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <?
                         include_once("pages/menu.php");
-                        include_once("pages/function.php");
+                        //include_once("pages/function.php");
                     ?>
                 </nav>
             </div>
@@ -41,6 +41,7 @@
                             break;
                     }
                 }
+                else include_once("pages/home.php");
                 ?>
             </section>
         </div>
