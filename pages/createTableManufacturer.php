@@ -1,9 +1,9 @@
 <?
-include_once("pages/function.php");
+include_once("function.php");
 $link = connect();
 $query ="CREATE TABLE Manufacturers(
     Id int NOT null PRIMARY KEY AUTO_INCREMENT,
-    `Name` varchar(30) not null
+    ManufactName varchar(30) not null
 )";
 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
 if($result)

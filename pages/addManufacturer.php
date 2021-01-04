@@ -1,7 +1,7 @@
 <?
-include_once("pages/function.php");
-if(isset($_POST['name'])){
-    if (addManufacturer($name)){
+include_once("function.php");
+if(isset($_POST['manName'])){
+    if (addManufacturer($manName)){
         echo "<span style='color:blue;'>Производитель добавлен</span>";
     }
     else echo "Error!";
@@ -10,6 +10,6 @@ if(isset($_POST['name'])){
 <h2>Добавить производителя</h2>
 <form method="POST">
     <p>Производитель: <br>
-        <input type="text" name="name" /></p>
+        <input type="text" name="manName" /></p>
     <input type="submit" value="Добавить">
 </form>

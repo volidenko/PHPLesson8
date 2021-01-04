@@ -1,5 +1,5 @@
 <?
-include_once("pages/function.php");
+include_once("function.php");
 // $title = "iPhone X11";
 // $price = 25999.9;
 // $manuf =1;

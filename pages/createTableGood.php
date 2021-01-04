@@ -1,5 +1,5 @@
 <?
-include_once("pages/function.php");
+include_once("function.php");
 $link = connect();
 $query ="CREATE TABLE Goods(
     Id int NOT null PRIMARY KEY AUTO_INCREMENT,

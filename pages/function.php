@@ -23,10 +23,10 @@ function addGood($title, $price, $manId){
     return true;
 }
 
-function addManufacturer($name){
+function addManufacturer($manName){
     $link=  connect();
-    $name = htmlentities(mysqli_real_escape_string($link, $_POST['title']));
-    $query = "INSERT INTO `manufacturers`(`Id`, `Name`) VALUES (DEFAULT, '".$name."')";
+    $manName = htmlentities(mysqli_real_escape_string($link, $_POST['manName']));
+    $query = "INSERT INTO `manufacturers`(`Id`, `ManufactName`) VALUES (DEFAULT, '".$manName."')";
     $q = mysqli_query($link, $query);
     $err = mysqli_errno($link);
     if($err)
