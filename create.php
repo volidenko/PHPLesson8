@@ -4,38 +4,45 @@
 <meta charset="utf-8">
 </head>
 <body>
-<?php
-require_once 'connection.php'; // подключаем скрипт
+<?
+//require_once 'connection.php';
+include_once("function.php");
 
-if(isset($_POST['name']) && isset($_POST['company'])){
+if(isset($_POST['title']) && isset($_POST['price']) && isset($_POST['manId'])){
 
 	// подключаемся к серверу
-	$link = mysqli_connect($host, $user, $password, $database) 
-		or die("Ошибка " . mysqli_error($link)); 
-	
+	// $link = mysqli_connect($host, $user, $password, $database) 
+	// 	or die("Ошибка " . mysqli_error($link)); 
+	$link = connect();
 	// экранирования символов для mysql
-	$name = htmlentities(mysqli_real_escape_string($link, $_POST['name']));
-	$company = htmlentities(mysqli_real_escape_string($link, $_POST['company']));
+	$title = htmlentities(mysqli_real_escape_string($link, $_POST['title']));
+	$price = htmlentities(mysqli_real_escape_string($link, $_POST['price']));
+	$manId = htmlentities(mysqli_real_escape_string($link, $_POST['manId']));
+
 	
 	// создание строки запроса
-	$query ="INSERT INTO tovars VALUES(NULL, '$name','$company')";
-	
+	//$query ="INSERT INTO tovars VALUES(NULL, '$name','$company')";
+    $query = "INSERT INTO `goods`(`Id`, `Title`, `Price`, `ManufacturerId`) VALUES (DEFAULT, '".$title."', ".$price.", ".$manId.")";
+
 	// выполняем запрос
 	$result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link)); 
 	if($result)
 	{
-		echo "<span style='color:blue;'>Данные добавлены</span>";
+		echo "<span style='color:blue;'>Товар добавлен</span>";
 	}
+	else echo "Error while good adding";
 	// закрываем подключение
 	mysqli_close($link);
 }
 ?>
-<h2>Добавить новую модель</h2>
+<h2>Добавить новый товар</h2>
 <form method="POST">
-<p>Введите модель:<br> 
-<input type="text" name="name" /></p>
+<p>Название товара:<br> 
+<input type="text" name="title" /></p>
+<p>Цена товара:<br> 
+<input type="number" name="price" step="0.01"/></p>
 <p>Производитель: <br> 
-<input type="text" name="company" /></p>
+<input type="number" name="manId" /></p>
 <input type="submit" value="Добавить">
 </form>
 </body>

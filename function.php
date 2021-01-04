@@ -7,12 +7,14 @@ function connect($host="localhost", $login="root", $pasw="root", $dbName="ShopDb
         return false;
     }
     return $link;
-
 }
 
 
 function addGood($title, $price, $manId){
     $link=  connect();
+    $title = htmlentities(mysqli_real_escape_string($link, $_POST['title']));
+	$price = htmlentities(mysqli_real_escape_string($link, $_POST['price']));
+	$manId = htmlentities(mysqli_real_escape_string($link, $_POST['manId']));
     $query = "INSERT INTO `goods`(`Id`, `Title`, `Price`, `ManufacturerId`) VALUES (DEFAULT, '".$title."', ".$price.", ".$manId.")";
     $q = mysqli_query($link, $query);
     $err = mysqli_errno($link);
