@@ -19,9 +19,10 @@ echo "<table><tr><th>Модель</th><th>Производитель</th><th>Ц�
         echo "</tr>";
     }
     echo "</table>";
+    mysqli_free_result($result);
 }
 echo "</br>";
-echo "В таблице Товары содержиться ".$rows." товара<br/>";
+echo "Количество товара - ".$rows."<br/>";
 ?>
 
 <!-- echo '<script>window.location="index.php";</script>';

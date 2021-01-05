@@ -20,3 +20,4 @@ if(isset($_POST['title']) && isset($_POST['price']) && isset($_POST['manId'])){
         <input type="number" name="manId" /></p>
     <input type="submit" value="Добавить">
 </form>
+<a class="nav-link" href="index.php?page=1">На главную<a>

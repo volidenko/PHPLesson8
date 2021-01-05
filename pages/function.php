@@ -34,21 +34,3 @@ function addManufacturer($manName){
     else
     return true;
 }
-
-function updateGood($title, $price, $manId){
-    $link=  connect();
-    $query = "INSERT INTO `goods`(`Id`, `Title`, `Price`, `ManufacturerId`) VALUES (DEFAULT, '".$title."', ".$price.", ".$manId.")";
-    $q = mysqli_query($link, $query);
-    $err = mysqli_errno($link);
-    if($err)
-    return false;
-    else
-    return true;
-}
-
-// UPDATE CLIENTS
-// SET CITY = ‘Жашків'
-// WHERE C_NO = 1;
-
-// INSERT INTO CLIENTS
-// VALUES (1, ‘Харламенко В.Ю.', ‘Уличная 3', ‘Кривой Рог', '09799911100');

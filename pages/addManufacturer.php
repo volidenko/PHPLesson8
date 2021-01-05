@@ -13,3 +13,4 @@ if(isset($_POST['manName'])){
         <input type="text" name="manName" /></p>
     <input type="submit" value="Добавить">
 </form>
+<a class="nav-link" href="index.php?page=1">На главную<a>

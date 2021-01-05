@@ -22,7 +22,6 @@
                     ?>
                 </nav>
             </div>
-
         </div>
         <div class="row">
             <section class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -38,6 +37,12 @@
                             break;
                         case 3:
                             include_once("pages/addGood.php");
+                            break;
+                        case 4:
+                            include_once("pages/updateGood.php");
+                            break;
+                        case 5:
+                            include_once("pages/deleteGood.php");
                             break;
                     }
                 }
