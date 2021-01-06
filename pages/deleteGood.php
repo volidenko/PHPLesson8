@@ -20,7 +20,7 @@ if(isset($_GET['id']))
         echo "<form method='POST'>
             <input type='hidden' name='id' value='$id' />
             <p>Название товара:<br> 
-            <input type='text' name='title' value='$title' /></p>
+            <input type='text' name='title' value='$title' readonly /></p>
             <h2>Удалить товар?</h2>
             <input type='submit' value='Удалить'>
             </form>";

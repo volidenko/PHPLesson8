@@ -33,16 +33,7 @@
                             include_once("pages/home.php");
                             break;
                         case 2:
-                            include_once("pages/addManufacturer.php");
-                            break;
-                        case 3:
                             include_once("pages/addGood.php");
-                            break;
-                        case 4:
-                            include_once("pages/updateGood.php");
-                            break;
-                        case 5:
-                            include_once("pages/deleteGood.php");
                             break;
                     }
                 }

@@ -21,3 +21,4 @@ if(isset($_POST['title']) && isset($_POST['price']) && isset($_POST['manId'])){
     <input type="submit" value="Добавить">
 </form>
 <a class="nav-link" href="index.php?page=1">На главную<a>
+<a class="nav-link" href="pages/addManufacturer.php">Добавить производителя<a>
