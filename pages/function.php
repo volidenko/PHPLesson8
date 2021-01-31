@@ -1,5 +1,5 @@
 <?
-function connect($host="localhost", $login="root", $pasw="root", $dbName="ShopDb"){
+function connect($host="localhost", $login="root", $pasw="root", $dbName="StoreDb"){
     $link = mysqli_connect($host, $login, $pasw, $dbName);
     if(!$link)
     {

@@ -1,7 +1,7 @@
 <?
 include_once("function.php");
 $link=  connect();
-$db=mysqli_select_db($link, "ShopDb") or die("Данная БД отсуствует!");
+$db=mysqli_select_db($link, "StoreDb") or die("Данная БД отсуствует!");
 $query ="SELECT Goods.Id, Goods.Title,  Manufacturers.ManufactName, Goods.Price from Manufacturers JOIN Goods ON Manufacturers.Id=Goods.ManufacturerId";
 $result = mysqli_query($link, $query) or die("Ошибка " . mysqli_error($link));
 if($result)
